@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+export PATH=$HOME/bin:$PATH
+
+[ -z "$1" ] && exit
+
+FNAME=$1
+FNAME_WITHOUT_EXT=$(basename ${FNAME} | head -c-4)
+CURRENT_DIR="$(dirname ${FNAME})"
+
+( cd "${CURRENT_DIR}" && pydoc3 -w "${FNAME_WITHOUT_EXT}" )
+( cd "${CURRENT_DIR}" && pydoc-fixer "${FNAME_WITHOUT_EXT}.html" )

@@ -1,0 +1,120 @@
+#!/usr/bin/env python3
+# coding: utf-8
+
+import sys
+import re
+
+
+def inject_styles(s, styles):
+    replace_part = "\r\n<style type=\"text/css\">\r\n" + styles + "\r\n" + "</style>\r\n"
+    return str.replace(s, "</head>", replace_part + "</head>\r\n")
+
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage: " + f"{sys.argv[0]} html-file")
+        sys.exit(1)
+
+    f = sys.argv[1]
+    with open(f, "r") as myfile:
+        s = myfile.read()
+
+    styles = """
+code {
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: scroll;
+  max-width: 100%;
+  min-width: 100px;
+  padding: 2px 5px 2px 5px;
+  white-space: break-spaces;
+  background-color: rgb(184, 197, 213);
+  border-radius: 6px;
+}
+
+.man-title {
+  color: #f80000;
+  font-style: oblique;
+}
+
+.man-param {
+  font-style: italic;
+}
+
+.man-return {
+  font-style: italic;
+}
+
+.man-desc {
+  -webkit-text-stroke: 0.5px;
+}
+
+.man-code-1 {
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: scroll;
+  max-width: 100%;
+  min-width: 100px;
+  padding: 2px 5px 2px 5px;
+  white-space: break-spaces;
+  background-color: rgb(184, 197, 213);
+  border-radius: 6px;
+}
+
+.man-code-2 {
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: scroll;
+  max-width: 100%;
+  min-width: 100px;
+  padding: 0px;
+  white-space: break-spaces;
+  background-color: rgb(150, 150, 150);
+  border-radius: 6px;
+}
+
+
+    """
+
+    s = inject_styles(s, styles)
+
+    """
+    Псевдосинтаксис:
+    
+    ~текст~ - выделение заголовка
+    `текст` - выделение текста: <code>текст<code>
+    [текст] - выделение текста жирным шрифтом
+    @текст@ - тип объекта
+    """
+
+    # `текст` - выделение текста: <code>текст<code>
+    for item in re.findall(r"(`[^`]+`)", s, re.MULTILINE):
+        middle_part = item[1:len(item) - 1]
+        # s = str.replace(s, item, "<code>" + middle_part + "</code>")
+        s = str.replace(s, item, "<span class=\"man-code-1\">" + middle_part + "</span>")
+
+    # ~текст~ - выделение текста стилем заголовка
+    for item in re.findall(r"(~[^~]+~)", s, re.MULTILINE):
+        middle_part = item[1:len(item) - 1]
+        s = str.replace(s, item, "<span class=\"man-title\">" + middle_part + "</span>")
+
+    # [текст] - выделение текста курсивом
+    for item in re.findall(r"(\[[^\[\]]+])", s, re.MULTILINE):
+        middle_part = item[1:len(item) - 1]
+        s = str.replace(s, item, "<span class=\"man-desc\">" + middle_part + "</span>")
+
+    # @текст@ - выделение текста курсивом
+    for item in re.findall(r"(@[^@]+@)", s, re.MULTILINE):
+        middle_part = item[1:len(item) - 1]
+        s = str.replace(s, item, "<span class=\"man-code-2\">" + middle_part + "</span>")
+
+    # :param ПАРАМЕТР: описание - выделение ПАРАМЕТР стилем <code>, замена ":param" на "параметр"
+    for item in re.findall(r":param&nbsp;([\w_]+):", s, re.MULTILINE):
+        old = ":param&nbsp;" + item + ":"
+        new = "<span class=\"man-param\">параметр</span>&nbsp;<code>" + item + "</code>:"
+        s = str.replace(s, old, new)
+
+    s = str.replace(s, ":return:", "<span class=\"man-return\">возвращает:</span>")
+
+    with open(f, "w") as myfile:
+        myfile.write(s)

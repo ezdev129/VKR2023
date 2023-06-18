@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module AUV_control15</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<style type="text/css">
+
+code {
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: scroll;
+  max-width: 100%;
+  min-width: 100px;
+  padding: 2px 5px 2px 5px;
+  white-space: break-spaces;
+  background-color: rgb(184, 197, 213);
+  border-radius: 6px;
+}
+
+.man-title {
+  color: #f80000;
+  font-style: oblique;
+}
+
+.man-param {
+  font-style: italic;
+}
+
+.man-return {
+  font-style: italic;
+}
+
+.man-desc {
+  -webkit-text-stroke: 0.5px;
+}
+
+.man-code-1 {
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: scroll;
+  max-width: 100%;
+  min-width: 100px;
+  padding: 2px 5px 2px 5px;
+  white-space: break-spaces;
+  background-color: rgb(184, 197, 213);
+  border-radius: 6px;
+}
+
+.man-code-2 {
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: scroll;
+  max-width: 100%;
+  min-width: 100px;
+  padding: 0px;
+  white-space: break-spaces;
+  background-color: rgb(150, 150, 150);
+  border-radius: 6px;
+}
+
+
+    
+</style>
+</head>
+<body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>AUV_control15</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:AUV_control15.py">AUV_control15.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;coding:&nbsp;utf-8</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="matplotlib.pyplot.html">matplotlib.pyplot</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-abs_value"><strong>abs_value</strong></a>(x: numpy.ndarray) -&gt; float</dt><dd><tt><span class="man-title">Вычисляет&nbsp;абсолютную&nbsp;величину&nbsp;вектора&nbsp;x</span><br>
+&nbsp;<br>
+<span class="man-param">параметр</span>&nbsp;<code>x</code>:&nbsp;массив&nbsp;<span class="man-code-2">np.ndarray</span>&nbsp;значений<br>
+<span class="man-return">возвращает:</span>&nbsp;<span class="man-code-2">float</span>&nbsp;длина&nbsp;вектора&nbsp;<span class="man-code-1">x</span></tt></dd></dl>
+ <dl><dt><a name="-ann_train"><strong>ann_train</strong></a>(npdata, labels_dict: dict, init_weight_list: list, init_bias_list: list, act_func, mu: float = 0.05, epoch: int = 500) -&gt; (&lt;class 'list'&gt;, &lt;class 'list'&gt;, &lt;class 'list'&gt;)</dt><dd><tt><span class="man-title">Реализация&nbsp;обучения&nbsp;нейронной&nbsp;сети&nbsp;методом&nbsp;обратного&nbsp;распространения&nbsp;ошибки&nbsp;с&nbsp;использованием&nbsp;градиентного&nbsp;спуска</span><br>
+&nbsp;<br>
+<span class="man-param">параметр</span>&nbsp;<code>npdata</code>:&nbsp;массив&nbsp;данных&nbsp;для&nbsp;обучения&nbsp;ИНС<br>
+<span class="man-param">параметр</span>&nbsp;<code>labels_dict</code>:&nbsp;<span class="man-code-2">dict</span>&nbsp;словарь&nbsp;меток&nbsp;для&nbsp;каждого&nbsp;слоя&nbsp;ИНС<br>
+<span class="man-param">параметр</span>&nbsp;<code>init_weight_list</code>:&nbsp;список&nbsp;<span class="man-code-2">np.ndarray</span>&nbsp;массивов&nbsp;начальных&nbsp;весов&nbsp;ИНС<br>
+<span class="man-param">параметр</span>&nbsp;<code>init_bias_list</code>:&nbsp;список&nbsp;<span class="man-code-2">np.ndarray</span>&nbsp;начальных&nbsp;смещений&nbsp;ИНС<br>
+<span class="man-param">параметр</span>&nbsp;<code>act_func</code>:&nbsp;<span class="man-code-2">func</span>&nbsp;функция&nbsp;активации&nbsp;ИНС<br>
+<span class="man-param">параметр</span>&nbsp;<code>mu</code>:&nbsp;<span class="man-code-2">float</span>&nbsp;скорость&nbsp;обучения&nbsp;ИНС<br>
+<span class="man-param">параметр</span>&nbsp;<code>epoch</code>:&nbsp;<span class="man-code-2">int</span>&nbsp;количество&nbsp;эпох&nbsp;обучения&nbsp;ИНС&nbsp;(по&nbsp;умолчанию&nbsp;500)<br>
+<span class="man-return">возвращает:</span>&nbsp;(<span class="man-code-2">list</span>,&nbsp;<span class="man-code-2">list</span>)&nbsp;обновленные&nbsp;веса&nbsp;начальных&nbsp;<span class="man-code-1">init_weight_list</span>&nbsp;и&nbsp;смещения&nbsp;<span class="man-code-1">init_bias_list</span>&nbsp;для&nbsp;ИНС</tt></dd></dl>
+ <dl><dt><a name="-cos"><strong>cos</strong></a>(x, /)</dt><dd><tt>Return&nbsp;the&nbsp;cosine&nbsp;of&nbsp;x&nbsp;(measured&nbsp;in&nbsp;radians).</tt></dd></dl>
+ <dl><dt><a name="-filename_fmt"><strong>filename_fmt</strong></a>(name: str, prefix_path: str = './img', ext: str = 'png')</dt><dd><tt><span class="man-title">Форматирует&nbsp;имя&nbsp;файла&nbsp;для&nbsp;сохранения&nbsp;графика</span><br>
+&nbsp;<br>
+<span class="man-param">параметр</span>&nbsp;<code>name</code>:&nbsp;<span class="man-code-2">str</span>&nbsp;часть&nbsp;имени&nbsp;пути&nbsp;файла&nbsp;для&nbsp;сохранения<br>
+<span class="man-param">параметр</span>&nbsp;<code>prefix_path</code>:&nbsp;<span class="man-code-2">str</span>&nbsp;директория&nbsp;пути&nbsp;сохранения&nbsp;(по&nbsp;умолчанию,&nbsp;<span class="man-code-1">./img</span>)<br>
+<span class="man-param">параметр</span>&nbsp;<code>ext</code>:&nbsp;<span class="man-code-2">str</span>&nbsp;расширение&nbsp;файла&nbsp;(по&nbsp;умолчанию,&nbsp;<span class="man-code-1">png</span>)<br>
+<span class="man-return">возвращает:</span>&nbsp;Форматированный&nbsp;путь</tt></dd></dl>
+ <dl><dt><a name="-generate_f"><strong>generate_f</strong></a>(T: int, A: int, mexp: float = 0.5, stdiv: float = 0.2) -&gt; list</dt><dd><tt><span class="man-title">Генерация&nbsp;случайных&nbsp;значений&nbsp;из&nbsp;нормального&nbsp;распределения&nbsp;с&nbsp;математическим&nbsp;ожиданием&nbsp;<span class="man-code-1">mexp</span><br>
+и&nbsp;стандартным&nbsp;отклонением&nbsp;<span class="man-code-1">stdiv</span>&nbsp;для&nbsp;входных&nbsp;данных</span><br>
+&nbsp;<br>
+<span class="man-param">параметр</span>&nbsp;<code>T</code>:&nbsp;<span class="man-code-2">int</span>&nbsp;длина&nbsp;данных<br>
+<span class="man-param">параметр</span>&nbsp;<code>A</code>:&nbsp;<span class="man-code-2">int</span>&nbsp;ширина&nbsp;данных<br>
+<span class="man-param">параметр</span>&nbsp;<code>max_exp</code>:&nbsp;<span class="man-code-2">float</span>&nbsp;математическое&nbsp;ожидание&nbsp;(по&nbsp;умолчанию,&nbsp;0.5)<br>
+<span class="man-param">параметр</span>&nbsp;<code>stdiv</code>:&nbsp;<span class="man-code-2">float</span>&nbsp;величина&nbsp;стандартного&nbsp;отклонения&nbsp;(по&nbsp;умолчанию,&nbsp;0.2)<br>
+<span class="man-return">возвращает:</span>&nbsp;список&nbsp;<span class="man-code-2">np.array</span>&nbsp;массивов&nbsp;случайных&nbsp;значений</tt></dd></dl>
+ <dl><dt><a name="-generate_labels"><strong>generate_labels</strong></a>(source_layer_arr: numpy.ndarray, source_labels_arr: numpy.ndarray, weight_arr: numpy.ndarray) -&gt; numpy.ndarray</dt><dd><tt><span class="man-title">Генерирование&nbsp;метки&nbsp;для&nbsp;обучения&nbsp;следующего&nbsp;слоя&nbsp;нейронной&nbsp;сети</span><br>
+&nbsp;<br>
+<span class="man-param">параметр</span>&nbsp;<code>source_layer_arr</code>:&nbsp;<span class="man-code-2">np.ndarray</span>&nbsp;вектор&nbsp;значений,&nbsp;полученный&nbsp;на&nbsp;выходе&nbsp;нейронной&nbsp;сети&nbsp;на&nbsp;определенном&nbsp;слое<br>
+<span class="man-param">параметр</span>&nbsp;<code>source_labels_arr</code>:&nbsp;<span class="man-code-2">np.ndarray</span>&nbsp;вектор&nbsp;желаемых&nbsp;значений&nbsp;на&nbsp;данном&nbsp;слое<br>
+<span class="man-param">параметр</span>&nbsp;<code>weight_arr</code>:&nbsp;<span class="man-code-2">np.ndarray</span>&nbsp;матрица&nbsp;весов,&nbsp;которая&nbsp;определяет&nbsp;связи&nbsp;между&nbsp;нейронами&nbsp;текущего&nbsp;слоя&nbsp;и&nbsp;предыдущего&nbsp;слоя<br>
+<span class="man-return">возвращает:</span>&nbsp;<span class="man-code-2">np.ndarray</span>&nbsp;метки&nbsp;для&nbsp;обучения&nbsp;следующего&nbsp;слоя</tt></dd></dl>
+ <dl><dt><a name="-get_n"><strong>get_n</strong></a>(phi: int, psi: int) -&gt; numpy.ndarray</dt><dd><tt><span class="man-title">Генерируют&nbsp;входные&nbsp;данные&nbsp;для&nbsp;нейронной&nbsp;сети&nbsp;на&nbsp;основе&nbsp;косинуса&nbsp;и&nbsp;синуса&nbsp;углов&nbsp;<span class="man-code-1">phi</span>&nbsp;и&nbsp;<span class="man-code-1">psi</span><br>
+для&nbsp;вычисления&nbsp;компонент&nbsp;вектора&nbsp;<span class="man-code-1">n</span>&nbsp;в&nbsp;трехмерном&nbsp;пространстве</span><br>
+&nbsp;<br>
+<span class="man-param">параметр</span>&nbsp;<code>phi</code>:&nbsp;<span class="man-code-2">int</span>&nbsp;угол&nbsp;<span class="man-code-1">phi</span><br>
+<span class="man-param">параметр</span>&nbsp;<code>psi</code>:&nbsp;<span class="man-code-2">int</span>&nbsp;угол&nbsp;<span class="man-code-1">psi</span><br>
+<span class="man-return">возвращает:</span>&nbsp;<span class="man-code-2">np.ndarray</span>&nbsp;массив&nbsp;компонент&nbsp;вектора&nbsp;<span class="man-code-1">n</span>&nbsp;в&nbsp;трехмерном&nbsp;пространстве<br>
+&nbsp;<br>
+<span class="man-desc">Вектор&nbsp;<span class="man-code-1">n</span>&nbsp;представляет&nbsp;собой&nbsp;единичный&nbsp;вектор,&nbsp;направление&nbsp;которого&nbsp;определяется&nbsp;углами&nbsp;<span class="man-code-1">phi</span>&nbsp;и&nbsp;<span class="man-code-1">psi</span>.<br>
+Он&nbsp;может&nbsp;использоваться&nbsp;для&nbsp;различных&nbsp;целей,&nbsp;таких&nbsp;как&nbsp;определение&nbsp;направления&nbsp;движения&nbsp;объекта&nbsp;в&nbsp;пространстве<br>
+или&nbsp;ориентации&nbsp;объекта&nbsp;относительно&nbsp;других&nbsp;объектов</span></tt></dd></dl>
+ <dl><dt><a name="-get_x"><strong>get_x</strong></a>(T: int) -&gt; numpy.ndarray</dt><dd><tt><span class="man-title">Функция&nbsp;генерации&nbsp;входных&nbsp;данных&nbsp;для&nbsp;нейронной&nbsp;сети</span><br>
+&nbsp;<br>
+<span class="man-param">параметр</span>&nbsp;<code>T</code>:&nbsp;<span class="man-code-2">int</span>&nbsp;входное&nbsp;число<br>
+<span class="man-return">возвращает:</span>&nbsp;&nbsp;массив&nbsp;<span class="man-code-2">np.ndarray</span>&nbsp;размера&nbsp;<span class="man-code-1">Tx3</span>&nbsp;элементов&nbsp;целочисленного&nbsp;значения&nbsp;от&nbsp;<span class="man-code-1">0</span>&nbsp;до&nbsp;<span class="man-code-1">T-1</span><br>
+&nbsp;<br>
+<span class="man-desc">Функция&nbsp;принимает&nbsp;на&nbsp;вход&nbsp;число&nbsp;<span class="man-code-1">T</span>&nbsp;и&nbsp;возвращает&nbsp;numpy&nbsp;массив&nbsp;размера&nbsp;<span class="man-code-1">Tx3</span>&nbsp;элементов<br>
+целочисленного&nbsp;значения&nbsp;от&nbsp;<span class="man-code-1">0</span>&nbsp;до&nbsp;<span class="man-code-1">T-1</span></span></tt></dd></dl>
+ <dl><dt><a name="-layer"><strong>layer</strong></a>(npdata: numpy.ndarray, weight_arr: numpy.ndarray, bias_arr: numpy.ndarray, act_func) -&gt; numpy.ndarray</dt><dd><tt><span class="man-title">Вычисление&nbsp;выходных&nbsp;значений&nbsp;слоя&nbsp;нейронной&nbsp;сети&nbsp;при&nbsp;заданных&nbsp;входных&nbsp;значениях&nbsp;<span class="man-code-1">npdata</span>,<br>
+матрице&nbsp;весов&nbsp;<span class="man-code-1">weight_arr</span>&nbsp;и&nbsp;векторе&nbsp;смещений&nbsp;<span class="man-code-1">bias_arr</span>&nbsp;с&nbsp;использованием&nbsp;функции&nbsp;активации&nbsp;<span class="man-code-1">act_func</span></span><br>
+&nbsp;<br>
+<span class="man-param">параметр</span>&nbsp;<code>npdata</code>:&nbsp;<span class="man-code-2">np.ndarray</span>&nbsp;массив&nbsp;данных&nbsp;(входной&nbsp;сигнал),&nbsp;размерность&nbsp;которого&nbsp;равна&nbsp;(n,&nbsp;m),&nbsp;где:&nbsp;n&nbsp;-&nbsp;количество&nbsp;признаков,&nbsp;m&nbsp;-&nbsp;количество&nbsp;примеров<br>
+<span class="man-param">параметр</span>&nbsp;<code>weight_arr</code>:&nbsp;<span class="man-code-2">np.ndarray</span>&nbsp;массив&nbsp;весов,&nbsp;размерность&nbsp;которого&nbsp;равна&nbsp;(n,&nbsp;k),&nbsp;где&nbsp;k&nbsp;-&nbsp;количество&nbsp;нейронов&nbsp;в&nbsp;слое<br>
+<span class="man-param">параметр</span>&nbsp;<code>bias_arr</code>:&nbsp;<span class="man-code-2">np.ndarray</span>&nbsp;массив&nbsp;смещений,&nbsp;размерность&nbsp;которого&nbsp;равна&nbsp;(1,&nbsp;k)<br>
+<span class="man-param">параметр</span>&nbsp;<code>act_func</code>:&nbsp;<span class="man-code-2">func</span>&nbsp;функция&nbsp;активации,&nbsp;применяемая&nbsp;к&nbsp;выходу&nbsp;каждого&nbsp;нейрона<br>
+<span class="man-return">возвращает:</span>&nbsp;<span class="man-code-2">np.ndarray</span>&nbsp;массив,&nbsp;содержащий&nbsp;выходные&nbsp;значения&nbsp;нейронов&nbsp;в&nbsp;слое&nbsp;после&nbsp;применения&nbsp;функции&nbsp;активации&nbsp;к&nbsp;их&nbsp;суммарному&nbsp;входу.&nbsp;Размерность&nbsp;этого&nbsp;массива&nbsp;равна&nbsp;(m,&nbsp;k),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;где&nbsp;m&nbsp;-&nbsp;количество&nbsp;примеров,&nbsp;k&nbsp;-&nbsp;количество&nbsp;нейронов&nbsp;в&nbsp;слое.</tt></dd></dl>
+ <dl><dt><a name="-layer_train"><strong>layer_train</strong></a>(npdata: numpy.ndarray, nplabels: numpy.ndarray, init_weight_arr: numpy.ndarray, init_bias_arr: numpy.ndarray, act_func, mu: float, epoch: int = 100) -&gt; (&lt;class 'numpy.ndarray'&gt;, &lt;class 'numpy.ndarray'&gt;, &lt;class 'list'&gt;)</dt><dd><tt><span class="man-title">Обучение&nbsp;одного&nbsp;слоя&nbsp;ИНС&nbsp;с&nbsp;использованием&nbsp;метода&nbsp;обратного&nbsp;распространения&nbsp;ошибки</span><br>
+&nbsp;<br>
+<span class="man-param">параметр</span>&nbsp;<code>npdata</code>:&nbsp;<span class="man-code-2">numpy.ndarray</span>&nbsp;массив&nbsp;входных&nbsp;данных<br>
+<span class="man-param">параметр</span>&nbsp;<code>nplabels</code>:&nbsp;<span class="man-code-2">numpy.ndarray</span>&nbsp;массив&nbsp;меток<br>
+<span class="man-param">параметр</span>&nbsp;<code>init_weight_arr</code>:&nbsp;<span class="man-code-2">numpy.ndarray</span>&nbsp;массив&nbsp;инициализированных&nbsp;весовых&nbsp;коэффициентов<br>
+<span class="man-param">параметр</span>&nbsp;<code>init_bias_arr</code>:&nbsp;<span class="man-code-2">numpy.ndarray</span>&nbsp;массив&nbsp;инициализированных&nbsp;коэффициентов&nbsp;смещения<br>
+<span class="man-param">параметр</span>&nbsp;<code>act_func</code>:&nbsp;<span class="man-code-2">func</span>&nbsp;функция&nbsp;активации<br>
+<span class="man-param">параметр</span>&nbsp;<code>mu</code>:&nbsp;<span class="man-code-2">float</span>&nbsp;коэффициент&nbsp;скорости&nbsp;обучения<br>
+<span class="man-param">параметр</span>&nbsp;<code>epoch</code>:&nbsp;<span class="man-code-2">int</span>&nbsp;количество&nbsp;эпох&nbsp;обучения<br>
+<span class="man-return">возвращает:</span>&nbsp;(<span class="man-code-2">np.ndarray</span>,&nbsp;<span class="man-code-2">np.ndarray</span>,&nbsp;<span class="man-code-2">list</span>)&nbsp;обученные&nbsp;значения&nbsp;начальных&nbsp;весов&nbsp;<span class="man-code-1">init_weight_arr</span>&nbsp;и&nbsp;смещений&nbsp;<span class="man-code-1">init_bias_arr</span>.<br>
+&nbsp;<br>
+<span class="man-desc">Функция&nbsp;принимает&nbsp;на&nbsp;вход&nbsp;матрицу&nbsp;входных&nbsp;данных&nbsp;<span class="man-code-1">npdata</span>,&nbsp;матрицу&nbsp;ожидаемых&nbsp;выходных&nbsp;значений&nbsp;<span class="man-code-1">nplabels</span>,<br>
+начальные&nbsp;значения&nbsp;весов&nbsp;<span class="man-code-1">init_weight_arr</span>&nbsp;и&nbsp;смещений&nbsp;<span class="man-code-1">init_bias_arr</span>,&nbsp;функцию&nbsp;активации&nbsp;<span class="man-code-1">act_func</span>,<br>
+коэффициент&nbsp;обучения&nbsp;<span class="man-code-1">mu</span>&nbsp;и&nbsp;количество&nbsp;эпох&nbsp;<span class="man-code-1">epoch</span></span></tt></dd></dl>
+ <dl><dt><a name="-layers"><strong>layers</strong></a>(npdata: numpy.ndarray, weight_list: list, bias_list: list, act_func) -&gt; list</dt><dd><tt><span class="man-title">Функция&nbsp;вычисляет&nbsp;выходные&nbsp;значения&nbsp;для&nbsp;каждого&nbsp;слоя&nbsp;нейронной&nbsp;сети&nbsp;и&nbsp;возвращает&nbsp;список&nbsp;выходных<br>
+значений&nbsp;для&nbsp;каждого&nbsp;слоя</span><br>
+&nbsp;<br>
+<span class="man-param">параметр</span>&nbsp;<code>npdata</code>:&nbsp;<span class="man-code-2">np.ndarray</span>&nbsp;массив,&nbsp;содержит&nbsp;входные&nbsp;данные&nbsp;для&nbsp;обработки<br>
+<span class="man-param">параметр</span>&nbsp;<code>weight_list</code>:&nbsp;список&nbsp;<span class="man-code-2">np.ndarray</span>&nbsp;массивов,&nbsp;содержащих&nbsp;веса&nbsp;слоев&nbsp;нейронной&nbsp;сети<br>
+<span class="man-param">параметр</span>&nbsp;<code>bias_list</code>:&nbsp;список&nbsp;<span class="man-code-2">np.ndarray</span>&nbsp;массивов,&nbsp;содержащих&nbsp;смещения&nbsp;слоев&nbsp;нейронной&nbsp;сети<br>
+<span class="man-param">параметр</span>&nbsp;<code>act_func</code>:&nbsp;<span class="man-code-2">func</span>&nbsp;функция&nbsp;активации,&nbsp;которая&nbsp;будет&nbsp;применяться&nbsp;к&nbsp;выходу&nbsp;каждого&nbsp;слоя<br>
+<span class="man-return">возвращает:</span>&nbsp;список&nbsp;<span class="man-code-2">np.ndarray</span>&nbsp;выходных&nbsp;значений&nbsp;для&nbsp;каждого&nbsp;слоя<br>
+&nbsp;<br>
+<span class="man-desc">Функция&nbsp;принимает&nbsp;на&nbsp;вход&nbsp;матрицу&nbsp;входных&nbsp;данных&nbsp;npdata,&nbsp;список&nbsp;матриц&nbsp;весов&nbsp;<span class="man-code-1">weight_list</span><br>
+и&nbsp;список&nbsp;векторов&nbsp;смещений&nbsp;<span class="man-code-1">bias_list</span>&nbsp;для&nbsp;каждого&nbsp;слоя&nbsp;нейронной&nbsp;сети,&nbsp;а&nbsp;также&nbsp;функцию&nbsp;активации&nbsp;<span class="man-code-1">act_func</span></span></tt></dd></dl>
+ <dl><dt><a name="-random"><strong>random</strong></a>(...)<font color="#909090"><font face="helvetica, arial"> method of <a href="random.html#Random">random.Random</a> instance</font></font></dt><dd><tt><a href="#-random">random</a>()&nbsp;-&gt;&nbsp;x&nbsp;in&nbsp;the&nbsp;interval&nbsp;[0,&nbsp;1).</tt></dd></dl>
+ <dl><dt><a name="-sigmoid"><strong>sigmoid</strong></a>(x: float) -&gt; float</dt><dd><tt><span class="man-title">Вычисляет&nbsp;значение&nbsp;сигмоидной&nbsp;функции&nbsp;активации&nbsp;для&nbsp;каждого&nbsp;элемента&nbsp;входного&nbsp;массива&nbsp;<span class="man-code-1">x</span><br>
+и&nbsp;возвращает&nbsp;массив&nbsp;со&nbsp;значениями&nbsp;сигмоидной&nbsp;функции&nbsp;активации</span><br>
+&nbsp;<br>
+<span class="man-param">параметр</span>&nbsp;<code>x</code>:&nbsp;<span class="man-code-2">float</span>&nbsp;входное&nbsp;значение<br>
+<span class="man-return">возвращает:</span>&nbsp;<span class="man-code-2">float</span>&nbsp;результат&nbsp;сигмоидной&nbsp;функии</tt></dd></dl>
+ <dl><dt><a name="-sin"><strong>sin</strong></a>(x, /)</dt><dd><tt>Return&nbsp;the&nbsp;sine&nbsp;of&nbsp;x&nbsp;(measured&nbsp;in&nbsp;radians).</tt></dd></dl>
+ <dl><dt><a name="-start"><strong>start</strong></a>(i: int) -&gt; float</dt><dd><tt><span class="man-title">Генерирует&nbsp;начальные&nbsp;значения&nbsp;для&nbsp;входных&nbsp;данных</span><br>
+&nbsp;<br>
+<span class="man-param">параметр</span>&nbsp;<code>i</code>:&nbsp;<span class="man-code-2">int</span>&nbsp;входящее&nbsp;число<br>
+<span class="man-return">возвращает:</span>&nbsp;&nbsp;<span class="man-code-2">float</span>&nbsp;<span class="man-code-1">0</span>&nbsp;|&nbsp;<span class="man-code-1">1</span>&nbsp;|&nbsp;<span class="man-code-1">random{-1,&nbsp;1}</span><br>
+&nbsp;<br>
+<span class="man-desc">Возвращает&nbsp;0,&nbsp;1&nbsp;или&nbsp;случайное&nbsp;число&nbsp;(в&nbsp;интервале&nbsp;от&nbsp;-1&nbsp;до&nbsp;1)&nbsp;в&nbsp;зависимости&nbsp;от&nbsp;значения&nbsp;аргумента&nbsp;<span class="man-code-1">i</span>:<br>
+{-inf,&nbsp;3}:&nbsp;0<br>
+{3,&nbsp;6}:&nbsp;1<br>
+{6,&nbsp;9}:&nbsp;0<br>
+{9,&nbsp;inf}:&nbsp;random{-1,&nbsp;1}</span></tt></dd></dl>
+ <dl><dt><a name="-umpf"><strong>umpf</strong></a>(step_num: int, expected_values_list: list, current_values_arr: numpy.ndarray, gamma: int) -&gt; numpy.ndarray</dt><dd><tt><span class="man-title">Вычисляет&nbsp;матрицу&nbsp;входных&nbsp;данных&nbsp;для&nbsp;каждого&nbsp;слоя&nbsp;нейронной&nbsp;сети</span><br>
+&nbsp;<br>
+<span class="man-param">параметр</span>&nbsp;<code>step_num</code>:&nbsp;<span class="man-code-2">int</span>&nbsp;номер&nbsp;текущего&nbsp;шага<br>
+<span class="man-param">параметр</span>&nbsp;<code>expected_values_list</code>:&nbsp;список&nbsp;<span class="man-code-2">np.ndarray</span>&nbsp;массивов&nbsp;значений,&nbsp;представляющих&nbsp;собой&nbsp;целевые&nbsp;значения,&nbsp;которые&nbsp;должна&nbsp;достичь&nbsp;система<br>
+<span class="man-param">параметр</span>&nbsp;<code>current_values_arr</code>:&nbsp;массив&nbsp;<span class="man-code-2">np.ndarray</span>&nbsp;значений,&nbsp;представляющих&nbsp;собой&nbsp;текущее&nbsp;состояние&nbsp;системы<br>
+<span class="man-param">параметр</span>&nbsp;<code>gamma</code>:&nbsp;<span class="man-code-2">int</span>&nbsp;пороговое&nbsp;значение&nbsp;для&nbsp;функции&nbsp;управления&nbsp;при&nbsp;обучении&nbsp;ИНС<br>
+<span class="man-return">возвращает:</span>&nbsp;массив&nbsp;<span class="man-code-2">np.ndarray</span>&nbsp;матрицы&nbsp;входных&nbsp;данных&nbsp;для&nbsp;каждого&nbsp;слоя&nbsp;нейронной&nbsp;сети<br>
+&nbsp;<br>
+<span class="man-desc">В&nbsp;алгоритме&nbsp;происходит&nbsp;вычисление&nbsp;управляющего&nbsp;воздействия&nbsp;<span class="man-code-1">vul</span>&nbsp;на&nbsp;текущем&nbsp;шаге&nbsp;времени,<br>
+используя&nbsp;значения&nbsp;управляющего&nbsp;воздействия&nbsp;с&nbsp;предыдущего&nbsp;шага&nbsp;времени&nbsp;и&nbsp;состояния&nbsp;системы&nbsp;на&nbsp;текущем<br>
+и&nbsp;предыдущем&nbsp;шагах&nbsp;времени.&nbsp;Если&nbsp;текущий&nbsp;шаг&nbsp;времени&nbsp;кратен&nbsp;<span class="man-code-1">Tp</span>,&nbsp;то&nbsp;функция&nbsp;также&nbsp;вычисляет<br>
+состояние&nbsp;системы&nbsp;на&nbsp;следующем&nbsp;шаге&nbsp;времени&nbsp;<span class="man-code-1">vpl1</span>.<br>
+Если&nbsp;текущий&nbsp;шаг&nbsp;времени&nbsp;кратен&nbsp;<span class="man-code-1">Tu</span>,&nbsp;то&nbsp;функция&nbsp;вычисляет&nbsp;управляющее&nbsp;воздействие&nbsp;на&nbsp;следующем&nbsp;шаге&nbsp;времени&nbsp;<span class="man-code-1">vml</span></span></tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>pi</strong> = 3.141592653589793</td></tr></table>
+</body></html>
